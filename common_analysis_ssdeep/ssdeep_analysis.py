@@ -1,13 +1,13 @@
 from common_analysis_base import AnalysisPluginString
-from common_helper_files import get_directory_for_filename, get_version_string_from_git
 from collections import defaultdict
 import ssdeep
 import time
 import logging
+from . import __version__
 
 log = logging.getLogger(__name__)
 
-system_version = get_version_string_from_git(get_directory_for_filename(__file__))
+system_version = __version__
 
 def n_grams(sequence,n=7):
     for i in range(len(sequence)-(n-1)):
