@@ -102,8 +102,8 @@ class CommonAnalysisSsdeep(AnalysisPluginString):
             compare_value = sample_ssdeep_hash.compare(candidate)
             if compare_value > 0 and sample_ssdeep_hash != candidate:
                 similar_samples.append((candidate.identifier, compare_value))
-        if not identifier:
-            self.cache[identifier] = sample_ssdeep_hash
+        if identifier:
+            self._add_to_cache(sample_ssdeep_hash)
 
         result = self.prepare_analysis_report_dictionary()
         result['similar samples'] = similar_samples
